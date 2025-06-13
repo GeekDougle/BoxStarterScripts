@@ -39,7 +39,6 @@ executeScript "RemoveDefaultApps.ps1";
 #Common utilities
 executeScript "Browsers.ps1";
 executeScript "Apps_Utilities_Base.ps1";
-executeScript "Apps_Utilities_Home.ps1";
 
 #SW Dev tools
 executeScript "CommonDevTools.ps1";
@@ -47,7 +46,7 @@ executeScript "Docker.ps1";
 executeScript "WSL.ps1";
 
 executeScript "Apps_Engineering.ps1";
-executeScript "Apps_Games.ps1";
+
 
 Enable-UAC
 Enable-MicrosoftUpdate
