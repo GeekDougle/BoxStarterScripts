@@ -2,12 +2,6 @@
 # Author: A. McDougle
 # Common home setup for a Windows PC
 
-# Ensure winget is available
-if (!(Get-Command "winget.exe" -ErrorAction SilentlyContinue)) {
-    Write-Error "Winget is not installed. Please ensure you're using Windows 10 (2004+) or Windows 11 with Winget support."
-    return
-}
-
 # Disable UAC to allow unattended installations
 Disable-UAC
 
@@ -47,7 +41,6 @@ executeScript "Docker.ps1";
 executeScript "WSL.ps1";
 
 executeScript "Apps_Engineering.ps1";
-
 
 Enable-UAC
 Enable-MicrosoftUpdate
