@@ -1,83 +1,68 @@
 #--- Uninstall unnecessary applications that come with Windows out of the box ---
-Write-Host "Uninstalling unnecessary default Windows applications..." -ForegroundColor "Yellow"
+Write-Host "Uninstall some applications that come with Windows out of the box" -ForegroundColor "Yellow"
+
+#Referenced to build script
+# https://docs.microsoft.com/en-us/windows/application-management/remove-provisioned-apps-during-update
+# https://github.com/jayharris/dotfiles-windows/blob/master/windows.ps1#L157
+# https://gist.github.com/jessfraz/7c319b046daa101a4aaef937a20ff41f
+# https://gist.github.com/alirobe/7f3b34ad89a159e6daa1
+# https://github.com/W4RH4WK/Debloat-Windows-10/blob/master/scripts/remove-default-apps.ps1
 
 function removeApp {
-    Param ([string]$pattern)
-    Write-Host "Checking for apps matching: $pattern" -ForegroundColor Cyan
-
-    $packages = Get-AppxPackage -AllUsers | Where-Object { $_.Name -like $pattern }
-    $provisioned = Get-AppXProvisionedPackage -Online | Where-Object { $_.DisplayName -like $pattern }
-
-    if ($packages.Count -eq 0 -and $provisioned.Count -eq 0) {
-        Write-Host "No installed or provisioned packages found for: $pattern" -ForegroundColor DarkGray
-        return
-    }
-
-    foreach ($pkg in $packages) {
-        try {
-            Write-Host "Removing installed package: $($pkg.Name)"
-            Remove-AppxPackage -Package $pkg.PackageFullName -AllUsers -ErrorAction SilentlyContinue
-        } catch {
-            Write-Warning "Could not remove installed package: $($pkg.Name)"
-        }
-    }
-
-    foreach ($prov in $provisioned) {
-        try {
-            Write-Host "Removing provisioned package: $($prov.DisplayName)"
-            Remove-AppxProvisionedPackage -Online -PackageName $prov.PackageName -ErrorAction SilentlyContinue
-        } catch {
-            Write-Warning "Could not remove provisioned package: $($prov.DisplayName)"
-        }
-    }
+	Param ([string]$appName)
+	Write-Output "Trying to remove $appName"
+	Get-AppxPackage $appName -AllUsers | Remove-AppxPackage
+	Get-AppXProvisionedPackage -Online | Where DisplayName -like $appName | Remove-AppxProvisionedPackage -Online
 }
 
 $applicationList = @(
-    "Microsoft.BingFinance"
-    "Microsoft.3DBuilder"
-    "Microsoft.BingNews"
-    "Microsoft.BingSports"
-    "Microsoft.BingWeather"
-    "Microsoft.CommsPhone"
-    "Microsoft.Getstarted"
-    "Microsoft.WindowsMaps"
-    "*MarchofEmpires*"
-    "Microsoft.GetHelp"
-    "Microsoft.Messaging"
-    "*Minecraft*"
-    "Microsoft.MicrosoftOfficeHub"
-    "Microsoft.OneConnect"
-    "Microsoft.WindowsPhone"
-    "Microsoft.WindowsSoundRecorder"
-    "*Solitaire*"
-    "Microsoft.Office.Sway"
-    "Microsoft.XboxApp"
-    "Microsoft.XboxIdentityProvider"
-    "Microsoft.XboxGameOverlay"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.ZuneMusic"
-    "Microsoft.ZuneVideo"
-    "Microsoft.NetworkSpeedTest"
-    "Microsoft.Print3D"
-    "Microsoft.People*"
-    "Microsoft.Microsoft3DViewer"
-    "Microsoft.MixedReality.Portal*"
-    "*Skype*"
-    "*Autodesk*"
-    "*BubbleWitch*"
-    "king.com*"
-    "G5*"
-    "*Dell*"
-    "*Facebook*"
-    "*Keeper*"
-    "*Netflix*"
-    "*Twitter*"
-    "*Plex*"
-    "*.Duolingo-LearnLanguagesforFree"
-    "*.EclipseManager"
-    "ActiproSoftwareLLC.562882FEEB491"  # Code Writer
-    "*.AdobePhotoshopExpress"
-)
+	"Microsoft.BingFinance"
+	"Microsoft.3DBuilder"
+	"Microsoft.BingNews"
+	"Microsoft.BingSports"
+	"Microsoft.BingWeather"
+	"Microsoft.CommsPhone"
+	"Microsoft.Getstarted"
+	"Microsoft.WindowsMaps"
+	"*MarchofEmpires*"
+	"Microsoft.GetHelp"
+	"Microsoft.Messaging"
+	"*Minecraft*"
+	"Microsoft.MicrosoftOfficeHub"
+	"Microsoft.OneConnect"
+	"Microsoft.WindowsPhone"
+	"Microsoft.WindowsSoundRecorder"
+	"*Solitaire*"
+	#"Microsoft.MicrosoftStickyNotes"
+	"Microsoft.Office.Sway"
+	"Microsoft.XboxApp"
+	"Microsoft.XboxIdentityProvider"
+	"Microsoft.XboxGameOverlay"
+	"Microsoft.XboxGamingOverlay"
+	"Microsoft.ZuneMusic"
+	"Microsoft.ZuneVideo"
+	"Microsoft.NetworkSpeedTest"
+	#"Microsoft.FreshPaint"
+	"Microsoft.Print3D"
+	"Microsoft.People*"
+	"Microsoft.Microsoft3DViewer"
+	"Microsoft.MixedReality.Portal*"
+	"*Skype*"
+	"*Autodesk*"
+	"*BubbleWitch*"
+    	"king.com*"
+    	"G5*"
+	"*Dell*"
+	"*Facebook*"
+	"*Keeper*"
+	"*Netflix*"
+	"*Twitter*"
+	"*Plex*"
+	"*.Duolingo-LearnLanguagesforFree"
+	"*.EclipseManager"
+	"ActiproSoftwareLLC.562882FEEB491" # Code Writer
+	"*.AdobePhotoshopExpress"
+);
 
 foreach ($app in $applicationList) {
     removeApp $app

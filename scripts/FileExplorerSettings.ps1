@@ -1,34 +1,15 @@
-# Boxstarter Helper Script: FileExplorerSettings.ps1
-# Purpose: Configure Windows Explorer and desktop experience settings
+#--- Configuring Windows properties ---
+#--- Windows Features ---
+# Show hidden files, Show protected OS files, Show file extensions
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
 
-Write-Host "🔧 Configuring Windows File Explorer settings..." -ForegroundColor "Yellow"
+#--- File Explorer Settings ---
+# will expand explorer to the actual folder you're in
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneExpandToCurrentFolder -Value 1
+#adds things back in your left pane like recycle bin
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneShowAllFolders -Value 1
+#opens PC to This PC, not quick access
+#Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Value 1
+#taskbar where window is open for multi-monitor
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
 
-# Enable hidden files, protected OS files, and file extensions
-Set-WindowsExplorerOptions `
-    -EnableShowHiddenFilesFoldersDrives `
-    -EnableShowProtectedOSFiles `
-    -EnableShowFileExtensions
-
-# Expand navigation pane to current folder
-Set-ItemProperty `
-    -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced `
-    -Name NavPaneExpandToCurrentFolder `
-    -Value 1
-
-# Show all folders in navigation pane (e.g., Recycle Bin, Control Panel)
-Set-ItemProperty `
-    -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced `
-    -Name NavPaneShowAllFolders `
-    -Value 1
-
-# Open File Explorer to "This PC" instead of "Quick Access"
-#Set-ItemProperty `
-#    -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced `
-#    -Name LaunchTo `
-#    -Value 1
-
-# Show taskbar buttons only on the taskbar where the window is open (multi-monitor)
-#Set-ItemProperty `
-#    -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced `
-#    -Name MMTaskbarMode `
-#    -Value 2

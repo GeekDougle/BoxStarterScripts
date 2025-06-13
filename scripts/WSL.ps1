@@ -1,29 +1,39 @@
-# Boxstarter Helper Script: WSL.ps1
-# Purpose: Enable WSL2 + Virtual Machine Platform and install Ubuntu
-
-Write-Host "🔧 Enabling required Windows features for WSL..." -ForegroundColor "Yellow"
-
-# Enable WSL and Virtual Machine Platform
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All
 
-# Refresh environment for WSL to register properly
-RefreshEnv
-
-Write-Host "💻 Installing WSL core components..." -ForegroundColor Cyan
-# Install WSL and the default Linux kernel (does not install a distro)
+# Ensure WSL is installed and updated
 wsl --install --no-distribution
 
-# Optional: Confirm default version is WSL2
-wsl --set-default-version 2
-
-# --- Install Ubuntu via winget ---
-# The winget ID is: Canonical.Ubuntu
-Install-WingetPackage "Canonical.Ubuntu" "wsl-ubuntu"
-
-# --- Alternative (manual) distro installation if needed ---
-# If the above fails, use Chocolatey fallback or direct Appx download (rare cases)
-# choco install -y wsl-ubuntu-2204
+#--- Ubuntu ---
+wsl --install -d Ubuntu
+#choco install -y wsl-ubuntu-2204  #only if the direct execution of wsl --install does not work
 
 
+
+# TODO: Move this to choco install once --root is included in that package
+#Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile ~/Ubuntu.appx -UseBasicParsing
+#Add-AppxPackage -Path ~/Ubuntu.appx
+# run the distro once and have it install locally with root user, unset password
+
+#RefreshEnv
+#Ubuntu1804 install --root
+#Ubuntu1804 run apt update
+#Ubuntu1804 run apt upgrade -y
+
+<#
+NOTE: Other distros can be scripted the same way for example:
+
+#--- SLES ---
+# Install SLES Store app
+Invoke-WebRequest -Uri https://aka.ms/wsl-sles-12 -OutFile ~/SLES.appx -UseBasicParsing
+Add-AppxPackage -Path ~/SLES.appx
+# Launch SLES
+sles-12.exe
+
+# --- openSUSE ---
+Invoke-WebRequest -Uri https://aka.ms/wsl-opensuse-42 -OutFile ~/openSUSE.appx -UseBasicParsing
+Add-AppxPackage -Path ~/openSUSE.appx
+# Launch openSUSE
+opensuse-42.exe
+#>
 

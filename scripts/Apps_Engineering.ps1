@@ -1,30 +1,21 @@
 # EngineeringApps.ps1
 # Boxstarter helper script to install engineering applications
 
-Write-Host "🔧 Installing Engineering Applications..." -ForegroundColor "Yellow"
-
 # Install PrusaSlicer
-Install-WingetPackage "Prusa3D.PrusaSlicer" "prusaslicer"
+choco install -y prusaslicer
 
 # Install Lychee Slicer
-Install-WingetPackage "Mango3D.LycheeSlicer " "LycheeSlicer"
+# choco install -y lychee-slicer  #link broken
 
 # Install KiCad
-Install-WingetPackage "KiCad.KiCad" "kicad"
+choco install -y kicad
 
 # Install FreeCAD
-Install-WingetPackage "FreeCAD.FreeCAD" "freecad"
+choco install -y freecad
 
 # Install LTspice
-Install-WingetPackage "AnalogDevices.LTspice" "ltspice"
+choco install -y ltspice --ignore-checksums
 
-# Install WaveForms (for Analog Discovery by Digilent)
-Install-WingetPackage "Digilent.WaveForms" "waveforms"
-
-# Install Carbide Motion
-Install-WingetPackage "Carbide3D.CarbideMotion" "carbidemotion"
-
-# Install Carbide Create
-Install-WingetPackage "Carbide3D.CarbideCreate" "carbidecreate"
-
-Write-Host "✅ Engineering app setup complete." -ForegroundColor Green
+# Install Altium Designer (Note: Altium is not available on Chocolatey. This will open the download page.)
+#Start-Process "https://www.altium.com/downloads/"
+#Write-Host "Please download and install Altium Designer manually from the opened web page."

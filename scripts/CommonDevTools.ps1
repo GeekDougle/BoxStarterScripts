@@ -1,37 +1,35 @@
-# Boxstarter Helper Script: Common Dev Tools
 
-Write-Host "Installing core dev tools using Winget with Chocolatey fallback..." -ForegroundColor "Yellow"
+# tools we expect devs across many scenarios will want
+choco install -y vscode
 
-# --- Install Git ---
-#TODO update to use Install-WingetPackage 
-winget install -PackageId "Git.Git" -DisplayName "Git" `
-    /o:Components=gitlfs,shellhere `
-    /o:EditorOption=Notepad++ `
-    /o:DefaultBranchOption=main `
-    /o:PathOption=Cmd `
-    /o:CurlOption=WinSSL `
-    /o:CRLFOption=CRLFAlways `
-    /o:BashTerminalOption=ConHost `
-    /o:UseCredentialManager=Enabled
+#install other helper tools
+choco install -y git --package-parameters="'/GitAndUnixToolsOnPath /WindowsTerminal /DefaultBranchName:main /Editor:Notepad++'"
 
-# --- Install Visual Studio Code ---
-Install-WingetPackage -PackageId "Microsoft.VisualStudioCode" -DisplayName "Visual Studio Code"
-
-# --- Install Python ---
-Install-WingetPackage -PackageId "Python.Python.3" -DisplayName "Python 3"
-
-# --- (Optional) Prompt for Git Identity ---
-# Uncomment below to set Git identity interactively during setup
-
+refreshenv
+# Prompt for Git user email and name
 # $userEmail = Read-Host "Enter your Git user.email"
 # $userName = Read-Host "Enter your Git user.name"
+
+# Configure Git with the entered values
 # git config --global user.email "$userEmail"
 # git config --global user.name "$userName"
-# Write-Host "Git config set:"
-# git config --global --get user.email
-# git config --global --get user.name
+#confirm the git config
+#Write-Host "Git config set:"
+#git config --global --get user.email
+#git config --global --get user.name
 
-# --- Install VS Code Extensions ---
+
+choco install -y python
+#choco install -y sysinternals Not needed at this time
+
+#install Vs code extensions
+choco install -y vscode-python
+
+# Install additional VS Code extensions that don't have Chocolatey packages
+# Ensure the VS Code CLI is available (some systems require launching it once to register `code` command)
+# Start-Process "C:\Program Files\Microsoft VS Code\Code.exe" -ArgumentList "--install-extension ms-python.python" -Wait
+# Start-Sleep -Seconds 5
+
 $extensions = @(
     "ms-toolsai.datawrangler",
     "ms-vscode-remote.remote-wsl",
@@ -43,10 +41,5 @@ $extensions = @(
 )
 
 foreach ($ext in $extensions) {
-    try {
-        code --install-extension $ext --force
-        Write-Host "Installed VS Code extension: $ext"
-    } catch {
-        Write-Warning "Failed to install extension $ext"
-    }
+    code --install-extension $ext
 }

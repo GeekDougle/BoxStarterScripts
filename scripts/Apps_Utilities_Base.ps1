@@ -1,28 +1,21 @@
-#--- Browsers ---
-Write-Host "Installing Basic Utilities via Winget..." -ForegroundColor "Yellow"
+# Boxstarter Helper Script: Apps_Utilities
 
-# Load helper functions
-. .\HelperFunctions.ps1
+# Install Notepad++
+choco install -y notepadplusplus
 
-# Notepad++
-Install-WingetPackage -PackageId "Notepad++.Notepad++" -DisplayName "Notepad++"
-
-# Foxit Reader
-Install-WingetPackage -PackageId "Foxit.FoxitReader" -DisplayName "Foxit Reader"
-
-# WinDirStat
-Install-WingetPackage -PackageId "WinDirStat.WinDirStat" -DisplayName "WinDirStat"
-
-# Raspberry Pi Imager
-Install-WingetPackage -PackageId "RaspberryPiFoundation.RaspberryPiImager" -DisplayName "Raspberry Pi Imager"
-
-# Logitech Options+
-Install-WingetPackage -PackageId "Logitech.OptionsPlus" -DisplayName "Logitech Options+"
-
-# Zoom
-Install-WingetPackage -PackageId "Zoom.Zoom" -DisplayName "Zoom"
-
-Write-Host "Installing Basic Utilities via Chocolatey..." -ForegroundColor "Yellow"
+# Install Foxit Reader
+choco install -y foxitreader
 
 # Install Bitwarden Chrome Extension (requires Chrome)
 choco install -y bitwarden-chrome
+
+# install WinDirStat
+choco install -y windirstat
+
+# install Raspberry Pi Imager
+choco install -y rpi-imager
+
+# install Logitech Options for my Mouse
+choco install -y logitech-options
+# Optionally, refresh environment variables
+refreshenv
