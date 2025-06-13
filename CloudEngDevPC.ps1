@@ -24,8 +24,8 @@ function executeScript {
 
 executeScript "FileExplorerSettings.ps1";
 # 1. Run all updates first
-Update-Help
-Install-WindowsUpdate #-AcceptEula
+#Update-Help
+#Install-WindowsUpdate #-AcceptEula
 
 #--- Setting up Windows ---
 executeScript "RemoveDefaultApps.ps1";
