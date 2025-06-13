@@ -1,9 +1,8 @@
-# BoxStarterScripts
-Set of Boxstarter scripts leveraging on WinGet to setup my PCs/VMs for different applications.  This is a conversion of the Chocolatey based repo https://github.com/microsoft/windows-dev-box-setup-scripts.  The goal of this project is to install the majority of my needed software and tools for new machines (virtual or physical)
+# BoxStarterScripts WinServer2022
+Set of Boxstarter scripts leveraging on Chocolatey to setup my PCs/VMs for different applications.  This is a conversion of the Chocolatey based repo https://github.com/microsoft/windows-dev-box-setup-scripts.  The goal of this project is to install the majority of my needed software and tools for new machines (virtual or physical)  CAN'T USE WINGET EASILY ON WINDOWS SERVER! 
 
 These scripts leverage these popular open source projects.
 - Boxstarter [boxstarter.org](http://boxstarter.org)
-- Winget []
 - Chocolatey [chocolatey.org](http://chocolatey.org)  (This is only used if Winget doesn't have a package and Chocolatey does)
 
 ## Project structure
@@ -25,8 +24,7 @@ To run a recipe script, click a link in the table below from your target machine
 
 |Click link to run  |Description  |
 |-------------------|-------------|
-|<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/GeekDougle/BoxStarterScripts/main/CloudEngDevPC.ps1'>CloudEngDevPC</a> | Sets up a cloud hosted PC to be a development environment for engineering, including essential tools and configurations. |
-|<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/GeekDougle/BoxStarterScripts/main/HomePC.ps1'>HomePC</a> | Sets up a home PC with preferred software and utilities for general use. |
+|<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/GeekDougle/BoxStarterScripts/WinServer2022/CloudEngDevPC.ps1'>CloudEngDevPC</a> | Sets up a cloud hosted PC to be a development environment for engineering, including essential tools and configurations. |
 
 **Notes:**  
 1. If you are using WSL there's a followup step we recommend after running the setup script.  When the script finishes you will only have a root user with a blank password. You should  manually create a non-root user via `$ sudo adduser [USERNAME] sudo` 
