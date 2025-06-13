@@ -35,6 +35,7 @@ Install-WindowsUpdate -AcceptEula
 
 #--- Setting up Windows ---
 executeScript "RemoveDefaultApps.ps1";
+executeScript "HyperV.ps1"; 
 
 #Common utilities
 executeScript "Browsers.ps1";
