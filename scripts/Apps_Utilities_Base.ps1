@@ -19,6 +19,9 @@ Install-WingetPackage -PackageId "RaspberryPiFoundation.RaspberryPiImager" -Disp
 # Logitech Options+
 Install-WingetPackage -PackageId "Logitech.OptionsPlus" -DisplayName "Logitech Options+"
 
+# Zoom
+Install-WingetPackage -PackageId "Zoom.Zoom" -DisplayName "Zoom"
+
 Write-Host "Installing Basic Utilities via Chocolatey..." -ForegroundColor "Yellow"
 
 # Install Bitwarden Chrome Extension (requires Chrome)

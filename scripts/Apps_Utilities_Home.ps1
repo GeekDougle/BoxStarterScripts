@@ -22,6 +22,9 @@ Install-WingetPackage -PackageId "Microsoft.OneNote" -DisplayName "Microsoft One
 # Spotify
 Install-WingetPackage -PackageId "Spotify.Spotify" -DisplayName "Spotify"
 
+# BalenaEtcher
+Install-WingetPackage -PackageId "Balena.Etcher" -DisplayName "BalenaEtcher"
+
 Write-Host "Installing Utilities for home via Chocolatey..." -ForegroundColor "Yellow"
 
 # Install Active Backup Client
