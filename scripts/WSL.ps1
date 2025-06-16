@@ -1,6 +1,27 @@
 # Boxstarter Helper Script: WSL.ps1
 # Purpose: Enable WSL2 + Virtual Machine Platform and install Ubuntu
 
+# Installs a package using winget if it is not already installed.
+# Parameters:
+#   $PackageId   - The winget package ID (string).
+#   $DisplayName - The friendly name of the package (string).
+#TODO update this to accept additional parameters like --source, --version, etc. for more flexibility.
+#TODO Figure out how to import HelperFunctions.ps1 from the Boxstarter script directory
+function Install-WingetPackage {
+    param (
+        [string]$PackageId,
+        [string]$DisplayName
+    )
+
+    $installed = winget list --id $PackageId | Select-String $PackageId
+    if (-not $installed) {
+        Write-Host "Installing $DisplayName..."
+        winget install --id $PackageId --exact --accept-package-agreements --accept-source-agreements
+    } else {
+        Write-Host "$DisplayName is already installed. Skipping."
+    }
+}
+
 Write-Host "Enabling required Windows features for WSL..." -ForegroundColor Cyan
 
 # Enable WSL and Virtual Machine Platform

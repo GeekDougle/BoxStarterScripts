@@ -2,8 +2,28 @@
 
 Write-Host "Installing core dev tools using Winget with Chocolatey fallback..." -ForegroundColor Cyan
 
+# Installs a package using winget if it is not already installed.
+# Parameters:
+#   $PackageId   - The winget package ID (string).
+#   $DisplayName - The friendly name of the package (string).
+#TODO update this to accept additional parameters like --source, --version, etc. for more flexibility.
+#TODO Figure out how to import HelperFunctions.ps1 from the Boxstarter script directory
+function Install-WingetPackage {
+    param (
+        [string]$PackageId,
+        [string]$DisplayName
+    )
+
+    $installed = winget list --id $PackageId | Select-String $PackageId
+    if (-not $installed) {
+        Write-Host "Installing $DisplayName..."
+        winget install --id $PackageId --exact --accept-package-agreements --accept-source-agreements
+    } else {
+        Write-Host "$DisplayName is already installed. Skipping."
+    }
+}
+
 # --- Install Git ---
-#TODO update to use Install-WingetPackage 
 winget install -PackageId "Git.Git" -DisplayName "Git" `
     /o:Components=gitlfs,shellhere `
     /o:EditorOption=Notepad++ `
