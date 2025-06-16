@@ -23,7 +23,7 @@ function Install-WingetPackage {
 }
 
 Write-Host "Enabling Windows Containers feature..." -ForegroundColor Cyan
-Enable-WindowsOptionalFeature -Online -FeatureName containers -All
+Enable-WindowsOptionalFeature -Online -FeatureName containers -All  #TODO- This required user input to decline the reboot.  Script this.
 
 # Install Docker Desktop (Winget fallback to Chocolatey)
 Install-WingetPackage "Docker.DockerDesktop" "docker-desktop"

@@ -26,6 +26,8 @@ To run a recipe script, click a link in the table below from your target machine
 Before clicking on one of these links, you may need to enable running scripts in Powershell.  This is done by running the following code:
 ```Set-ExecutionPolicy Unrestricted```
 
+Also had to upgrade winget...
+Update the line for Python in CommonDevTools.ps1
 After this completes you should reverse this by running:
 ```Set-ExecutionPolicy Restricted```
 

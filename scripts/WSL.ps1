@@ -26,14 +26,14 @@ Write-Host "Enabling required Windows features for WSL..." -ForegroundColor Cyan
 
 # Enable WSL and Virtual Machine Platform
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All
-Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All #Todo: this required a restart to take effect, script this if possible
 
 # Refresh environment for WSL to register properly
 RefreshEnv
 
 Write-Host "Installing WSL core components..." -ForegroundColor Cyan
 # Install WSL and the default Linux kernel (does not install a distro)
-wsl --install --no-distribution
+wsl --install #--no-distribution
 
 # Optional: Confirm default version is WSL2
 wsl --set-default-version 2

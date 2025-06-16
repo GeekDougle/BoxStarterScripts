@@ -2,6 +2,8 @@
 # Author: A. McDougle
 # Common home setup for a Windows PC
 
+#todo: figure out how to run this in a powershell session that has admin rights so we get better scrolling of output
+
 # Ensure winget is available
 if (!(Get-Command "winget.exe" -ErrorAction SilentlyContinue)) {
     Write-Error "Winget is not installed. Please ensure you're using Windows 10 (2004+) or Windows 11 with Winget support."
@@ -45,8 +47,7 @@ executeScript "Apps_Utilities_Base.ps1";
 executeScript "Apps_Utilities_Home.ps1";
 
 #SW Dev tools
-#TODO: VS Code extensions only install after a reboot... Also get a winget install help dialog at the begining of the script. Argument not recognized: -packageId
-#ToDo: Python not found.
+#TODO: VS Code extensions only install after a reboot... 
 executeScript "CommonDevTools.ps1";
 executeScript "Docker.ps1";
 #TODO this required user input.
