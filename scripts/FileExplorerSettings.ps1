@@ -1,7 +1,7 @@
 # Boxstarter Helper Script: FileExplorerSettings.ps1
 # Purpose: Configure Windows Explorer and desktop experience settings
 
-Write-Host "🔧 Configuring Windows File Explorer settings..." -ForegroundColor "Yellow"
+Write-Host "🔧 Configuring Windows File Explorer settings..." -ForegroundColor Cyan
 
 # Enable hidden files, protected OS files, and file extensions
 Set-WindowsExplorerOptions `

@@ -1,5 +1,5 @@
 #--- Uninstall unnecessary applications that come with Windows out of the box ---
-Write-Host "Uninstalling unnecessary default Windows applications..." -ForegroundColor "Yellow"
+Write-Host "Uninstalling unnecessary default Windows applications..." -ForegroundColor Cyan
 
 function removeApp {
     Param ([string]$pattern)

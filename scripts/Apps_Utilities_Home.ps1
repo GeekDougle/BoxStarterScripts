@@ -1,5 +1,5 @@
 # Boxstarter Helper Script: Apps_Utilities
-Write-Host "Installing utility apps for home via Winget..." -ForegroundColor "Yellow"
+Write-Host "Installing utility apps for home via Winget..." -ForegroundColor Cyan
 
 # Load helper functions
 . .\HelperFunctions.ps1
@@ -25,7 +25,7 @@ Install-WingetPackage -PackageId "Spotify.Spotify" -DisplayName "Spotify"
 # BalenaEtcher
 Install-WingetPackage -PackageId "Balena.Etcher" -DisplayName "BalenaEtcher"
 
-Write-Host "Installing Utilities for home via Chocolatey..." -ForegroundColor "Yellow"
+Write-Host "Installing Utilities for home via Chocolatey..." -ForegroundColor Cyan
 
 # Install Active Backup Client
 choco install -y synology-activebackup-for-business-agent

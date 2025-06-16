@@ -1,7 +1,7 @@
 # EngineeringApps.ps1
 # Boxstarter helper script to install engineering applications
 
-Write-Host "🔧 Installing Engineering Applications..." -ForegroundColor "Yellow"
+Write-Host "🔧 Installing Engineering Applications..." -ForegroundColor Cyan
 
 # Install PrusaSlicer
 Install-WingetPackage "Prusa3D.PrusaSlicer" "prusaslicer"

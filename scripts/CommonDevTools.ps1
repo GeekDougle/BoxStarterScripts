@@ -1,6 +1,6 @@
 # Boxstarter Helper Script: Common Dev Tools
 
-Write-Host "Installing core dev tools using Winget with Chocolatey fallback..." -ForegroundColor "Yellow"
+Write-Host "Installing core dev tools using Winget with Chocolatey fallback..." -ForegroundColor Cyan
 
 # --- Install Git ---
 #TODO update to use Install-WingetPackage 

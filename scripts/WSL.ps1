@@ -1,7 +1,7 @@
 # Boxstarter Helper Script: WSL.ps1
 # Purpose: Enable WSL2 + Virtual Machine Platform and install Ubuntu
 
-Write-Host "🔧 Enabling required Windows features for WSL..." -ForegroundColor "Yellow"
+Write-Host "🔧 Enabling required Windows features for WSL..." -ForegroundColor Cyan
 
 # Enable WSL and Virtual Machine Platform
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -All

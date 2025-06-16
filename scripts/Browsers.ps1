@@ -1,5 +1,5 @@
 #--- Browsers ---
-Write-Host "Installing web browsers via Winget..." -ForegroundColor "Yellow"
+Write-Host "Installing web browsers via Winget..." -ForegroundColor "Cyan
 
 # Install Google Chrome
 Write-Host "Installing Google Chrome..."

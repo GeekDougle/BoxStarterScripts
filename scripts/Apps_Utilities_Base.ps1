@@ -1,5 +1,5 @@
 #--- Browsers ---
-Write-Host "Installing Basic Utilities via Winget..." -ForegroundColor "Yellow"
+Write-Host "Installing Basic Utilities via Winget..." -ForegroundColor Cyan
 
 # Load helper functions
 . .\HelperFunctions.ps1
@@ -22,7 +22,7 @@ Install-WingetPackage -PackageId "Logitech.OptionsPlus" -DisplayName "Logitech O
 # Zoom
 Install-WingetPackage -PackageId "Zoom.Zoom" -DisplayName "Zoom"
 
-Write-Host "Installing Basic Utilities via Chocolatey..." -ForegroundColor "Yellow"
+Write-Host "Installing Basic Utilities via Chocolatey..." -ForegroundColor Cyan
 
 # Install Bitwarden Chrome Extension (requires Chrome)
 choco install -y bitwarden-chrome
