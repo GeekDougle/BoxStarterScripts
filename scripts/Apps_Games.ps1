@@ -1,7 +1,7 @@
 # GamingApps.ps1
 # Boxstarter script to install Steam and optionally some games
 
-Write-Host "🎮 Installing Steam..." -ForegroundColor Cyan
+Write-Host "Installing Steam..." -ForegroundColor Cyan
 
 # Install Steam using winget if possible, fallback to choco
 Install-WingetPackage "Valve.Steam" "Steam"
@@ -11,7 +11,7 @@ Install-WingetPackage "Valve.Steam" "Steam"
 
 # Optionally launch Steam and allow manual login
 #Start-Process "C:\Program Files (x86)\Steam\Steam.exe"
-#Write-Host "🚪 Please log in to Steam if prompted, then press Enter to continue..."
+#Write-Host "Please log in to Steam if prompted, then press Enter to continue..."
 #Read-Host
 
 # Optional: Install SteamCMD for headless installs (requires login)
@@ -33,4 +33,4 @@ $halfLifeAppId = 70
 & "C:\Program Files (x86)\Steam\steamcmd.exe" +login $steamUser $steamPass +app_update $halfLifeAppId validate +quit
 #>
 
-Write-Host "✅ Steam installation complete. Launch Steam manually to install games." -ForegroundColor Green
+Write-Host "Steam installation complete. Launch Steam manually to install games." -ForegroundColor Green

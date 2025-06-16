@@ -1,7 +1,7 @@
 # EngineeringApps.ps1
 # Boxstarter helper script to install engineering applications
 
-Write-Host "🔧 Installing Engineering Applications..." -ForegroundColor Cyan
+Write-Host "Installing Engineering Applications..." -ForegroundColor Cyan
 
 # Install PrusaSlicer
 Install-WingetPackage "Prusa3D.PrusaSlicer" "prusaslicer"
@@ -27,4 +27,4 @@ Install-WingetPackage "Carbide3D.CarbideMotion" "carbidemotion"
 # Install Carbide Create
 Install-WingetPackage "Carbide3D.CarbideCreate" "carbidecreate"
 
-Write-Host "✅ Engineering app setup complete." -ForegroundColor Green
+Write-Host "Engineering app setup complete." -ForegroundColor Green

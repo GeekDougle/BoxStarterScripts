@@ -1,7 +1,7 @@
 # Boxstarter Helper Script: Docker.ps1
 # Purpose: Install Docker tools and enable required features
 
-Write-Host "🐳 Enabling Windows Containers feature..." -ForegroundColor Cyan
+Write-Host "Enabling Windows Containers feature..." -ForegroundColor Cyan
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
 
 # Install Docker Desktop (Winget fallback to Chocolatey)
