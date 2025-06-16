@@ -23,7 +23,8 @@ function Install-WingetPackage {
 Write-Host "Installing Basic Utilities via Winget..." -ForegroundColor Cyan
 
 # Notepad++
-Install-WingetPackage -PackageId "Notepad++.Notepad++" -DisplayName "Notepad++"
+#can't use the Install-WingetPackage function here because I get a regular expression error due to the "++" in the name
+winget install --id Notepad++.Notepad++ --exact --accept-package-agreements --accept-source-agreements
 
 # Foxit Reader
 Install-WingetPackage -PackageId "Foxit.FoxitReader" -DisplayName "Foxit Reader"
