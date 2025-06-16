@@ -23,6 +23,12 @@ A recipe is the script you run.  It calls multiple helper scripts.  These curren
 ## How to run the scripts
 To run a recipe script, click a link in the table below from your target machine. This will download the Boxstarter one-click application, and prompt you for Boxstarter to run with Administrator privileges (which it needs to do its job). Clicking yes in this dialog will cause the recipe to begin. You can then leave the job unattended and come back when it's finished.
 
+Before clicking on one of these links, you may need to enable running scripts in Powershell.  This is done by running the following code:
+```Set-ExecutionPolicy Unrestricted```
+
+After this completes you should reverse this by running:
+```Set-ExecutionPolicy Restricted```
+
 |Click link to run  |Description  |
 |-------------------|-------------|
 |<a href='http://boxstarter.org/package/url?https://raw.githubusercontent.com/GeekDougle/BoxStarterScripts/main/CloudEngDevPC.ps1'>CloudEngDevPC</a> | Sets up a cloud hosted PC to be a development environment for engineering, including essential tools and configurations. |
