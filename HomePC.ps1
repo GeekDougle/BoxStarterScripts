@@ -33,7 +33,8 @@ executeScript "FileExplorerSettings.ps1";
 Install-WindowsUpdate -AcceptEula
 
 #--- Setting up Windows ---
-executeScript "RemoveDefaultApps.ps1";
+#this is a workaround for the fact that Get-AppxPackage does not work with Boxstarter in Windows 11 24H2
+#executeScript "RemoveDefaultApps.ps1";
 executeScript "HyperV.ps1"; 
 
 #Common utilities

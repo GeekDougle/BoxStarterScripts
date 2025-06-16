@@ -5,14 +5,13 @@ function removeApp {
     Param ([string]$pattern)
     Write-Host "Checking for apps matching: $pattern" -ForegroundColor Cyan
 
-    #this is a workaround for the fact that Get-AppxPackage does not work with Boxstarter in Windows 10 24H2
-    #$packages = Get-AppxPackage -AllUsers | Where-Object { $_.Name -like $pattern }
-    #$provisioned = Get-AppXProvisionedPackage -Online | Where-Object { $_.DisplayName -like $pattern }
+    $packages = Get-AppxPackage -AllUsers | Where-Object { $_.Name -like $pattern }
+    $provisioned = Get-AppXProvisionedPackage -Online | Where-Object { $_.DisplayName -like $pattern }
 
-    #if ($packages.Count -eq 0 -and $provisioned.Count -eq 0) {
-    #    Write-Host "No installed or provisioned packages found for: $pattern" -ForegroundColor DarkGray
-    #    return
-    #}
+    if ($packages.Count -eq 0 -and $provisioned.Count -eq 0) {
+        Write-Host "No installed or provisioned packages found for: $pattern" -ForegroundColor DarkGray
+        return
+    }
 
     foreach ($pkg in $packages) {
         try {
