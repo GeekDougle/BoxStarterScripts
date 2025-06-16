@@ -30,16 +30,18 @@ Install-WingetPackage -PackageId "TheDocumentFoundation.LibreOffice" -DisplayNam
 Install-WingetPackage -PackageId "Foxit.FoxitReader" -DisplayName "Foxit Reader"
 
 # Synology Drive Client
-Install-WingetPackage -PackageId "Synology.SynologyDriveClient" -DisplayName "Synology Drive Client"
+Install-WingetPackage -PackageId "Synology.DriveClient" -DisplayName "Synology Drive Client"
+Install-WingetPackage -PackageId "Synology.ActiveBackupForBusinessAgent" -DisplayName "Synology Drive Client"
 
 # Ledger Live
-Install-WingetPackage -PackageId "Ledger.LedgerLive" -DisplayName "Ledger Live"
+Install-WingetPackage -PackageId "LedgerHQ.LedgerLive" -DisplayName "Ledger Live"
 
 # OneNote (preinstalled on most systems; Winget ID included for fallback)
 Install-WingetPackage -PackageId "Microsoft.OneNote" -DisplayName "Microsoft OneNote"
 
 # Spotify
-Install-WingetPackage -PackageId "Spotify.Spotify" -DisplayName "Spotify"
+choco install -y Sspotify
+#Install-WingetPackage -PackageId "Spotify.Spotify" -DisplayName "Spotify"
 
 # BalenaEtcher
 Install-WingetPackage -PackageId "Balena.Etcher" -DisplayName "BalenaEtcher"
@@ -47,4 +49,4 @@ Install-WingetPackage -PackageId "Balena.Etcher" -DisplayName "BalenaEtcher"
 Write-Host "Installing Utilities for home via Chocolatey..." -ForegroundColor Cyan
 
 # Install Active Backup Client
-choco install -y synology-activebackup-for-business-agent
+#choco install -y synology-activebackup-for-business-agent

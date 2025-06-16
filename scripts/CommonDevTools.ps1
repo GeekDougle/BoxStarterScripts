@@ -24,21 +24,13 @@ function Install-WingetPackage {
 }
 
 # --- Install Git ---
-winget install -PackageId "Git.Git" -DisplayName "Git" `
-    /o:Components=gitlfs,shellhere `
-    /o:EditorOption=Notepad++ `
-    /o:DefaultBranchOption=main `
-    /o:PathOption=Cmd `
-    /o:CurlOption=WinSSL `
-    /o:CRLFOption=CRLFAlways `
-    /o:BashTerminalOption=ConHost `
-    /o:UseCredentialManager=Enabled
+winget install --id Git.Git --exact --accept-package-agreements --accept-source-agreements --override "Components=gitlfs,shellhere EditorOption=Notepad++ DefaultBranchOption=main PathOption=Cmd CurlOption=WinSSL CRLFOption=CRLFAlways BashTerminalOption=ConHost UseCredentialManager=Enabled"
 
 # --- Install Visual Studio Code ---
 Install-WingetPackage -PackageId "Microsoft.VisualStudioCode" -DisplayName "Visual Studio Code"
 
 # --- Install Python ---
-Install-WingetPackage -PackageId "Python.Python.3" -DisplayName "Python 3"
+Install-WingetPackage -PackageId "Python.Python.3.13" -DisplayName "Python 3"
 
 # --- (Optional) Prompt for Git Identity ---
 # Uncomment below to set Git identity interactively during setup

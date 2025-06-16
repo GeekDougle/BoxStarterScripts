@@ -39,13 +39,4 @@ Install-WingetPackage "FreeCAD.FreeCAD" "freecad"
 # Install LTspice
 Install-WingetPackage "AnalogDevices.LTspice" "ltspice"
 
-# Install WaveForms (for Analog Discovery by Digilent)
-Install-WingetPackage "Digilent.WaveForms" "waveforms"
-
-# Install Carbide Motion
-Install-WingetPackage "Carbide3D.CarbideMotion" "carbidemotion"
-
-# Install Carbide Create
-Install-WingetPackage "Carbide3D.CarbideCreate" "carbidecreate"
-
 Write-Host "Engineering app setup complete." -ForegroundColor Green
