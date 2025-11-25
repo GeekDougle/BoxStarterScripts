@@ -16,10 +16,10 @@ Set-ItemProperty `
     -Value 1
 
 # Show all folders in navigation pane (e.g., Recycle Bin, Control Panel)
-Set-ItemProperty `
-    -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced `
-    -Name NavPaneShowAllFolders `
-    -Value 1
+#Set-ItemProperty `
+#    -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced `
+#    -Name NavPaneShowAllFolders `
+#    -Value 1
 
 # Open File Explorer to "This PC" instead of "Quick Access"
 #Set-ItemProperty `
