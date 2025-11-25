@@ -27,7 +27,7 @@ Write-Host "Installing Basic Utilities via Winget..." -ForegroundColor Cyan
 winget install --id Notepad++.Notepad++ --exact --accept-package-agreements --accept-source-agreements
 
 # Foxit Reader
-#Install-WingetPackage -PackageId "Foxit.FoxitReader" -DisplayName "Foxit Reader"
+Install-WingetPackage -PackageId "Foxit.FoxitReader" -DisplayName "Foxit Reader"
 
 # WinDirStat
 Install-WingetPackage -PackageId "WinDirStat.WinDirStat" -DisplayName "WinDirStat"
